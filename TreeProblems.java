@@ -32,7 +32,7 @@ public class TreeProblems {
 
     result.addAll(setB); //add the elements of setB to result wich contains the elements of setA
     temp.retainAll(setA); //keeps the elements that are in setA and temp (setB)
-    result.removeAll(temp); 
+    result.removeAll(temp); //removes elements that both of the sets have 
 
 
     return result;
