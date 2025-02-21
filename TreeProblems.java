@@ -27,7 +27,15 @@ public class TreeProblems {
     // *several* lines of code. Hint: create two temporary TreeSets and utilize the
     // methods retainAll(), addAll(), and removeAll(). But in the end, get something to work.
 
-    return setA;
+    Set <Integer> result = new TreeSet<>(setA);
+    Set <Integer> temp = new TreeSet<>(setB);
+
+    result.addAll(setB); //add the elements of setB to result wich contains the elements of setA
+    temp.retainAll(setA); //keeps the elements that are in setA and temp (setB)
+    result.removeAll(temp); 
+
+
+    return result;
   }
 
 
