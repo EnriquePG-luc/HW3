@@ -361,6 +361,23 @@ class LUC_AVLTree {
          * code for each. You can also look at the method InsertElement, as it has do
          * do many of the same things as this method.
          */
+        if (node == null){ //checks if the node is null
+            return null;
+        }
+
+        //traverse the tree to find the element to be deleted
+
+        //delete the node
+        //check if the node had children nodes if so change how the node is removed
+
+        //check if tree becomes null after the deletion
+
+        //check the height of the tree
+        //check if the tree is balanced
+
+        //if not balanced check wich type of rotation needs to occur
+
+
 
         return node;
     }

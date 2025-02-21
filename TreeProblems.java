@@ -49,8 +49,13 @@ public class TreeProblems {
   public static void removeEven(Map<Integer, String> treeMap) {
 
     // INSERT CODE HERE.
-
-    return;
+    Iterator<Integer> iterator = treeMap.keySet().iterator(); //create an iterator to be ablet to go through all of the keys
+    while (iterator.hasNext()) { //while there is still keys to check
+      if (iterator.next() % 2 == 0){ //if the key is even
+        iterator.remove(); //remove the key value pair
+      }
+      
+    }
   }
 
 
