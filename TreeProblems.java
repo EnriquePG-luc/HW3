@@ -65,7 +65,7 @@ public class TreeProblems {
 
     // INSERT CODE HERE
 
-    return false;
+    return tree1.equals(tree2); //checks if the trees contain the same 
 
   }
 
