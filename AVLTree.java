@@ -366,21 +366,56 @@ class LUC_AVLTree {
         }
 
         //traverse the tree to find the element to be deleted
+        if (value < node.value){
+            node.leftChild = deleteElement(value, node.leftChild);
+        } else if (value > node.value){
+            node.rightChild = deleteElement(value, node.rightChild);
+        } else {
+                //node found
+                //delete the node
+            if (node.leftChild == null || node.rightChild == null){
+                node = (node.leftChild != null) ? node.leftChild : node.rightChild;
+            } else {
+                // if the node has two children move one of the children node to the wain spot 
+                Node replacement = minValueNode(node.rightChild);
+                node.value = replacement.value;
+                node.rightChild = deleteElement(replacement.value, node.rightChild);
+            }
+        }
 
-        //delete the node
-        //check if the node had children nodes if so change how the node is removed
-
-        //check if tree becomes null after the deletion
+        // check if the tree becomes null after deleting the node
+        if (node == null) {
+            return null;
+        }
 
         //check the height of the tree
+        node.height = getMaxHeight(getHeight(node.leftChild), getHeight(node.rightChild)) + 1;
+
         //check if the tree is balanced
+        int balance = getBalanceFactor(node);
 
         //if not balanced check wich type of rotation needs to occur
+        if (balance > 1) { //if the balance factor is greater than 1 it starts with a left shift
+            if (getBalanceFactor(node.leftChild) >= 0) { 
+                return LLRotation(node);
+            } else {
+                return LRRotation(node);
+            }
+        }
 
-
+        if (balance < -1) { //if the balance factor is less than -1 it starts with a right shift
+            if (getBalanceFactor(node.rightChild) <= 0) {
+                return RRRotation(node);
+            } else {
+                return RLRotation(node);
+            }
+        }
 
         return node;
+
     }
+        
+    
 
 
     /**
